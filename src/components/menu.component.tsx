@@ -83,7 +83,6 @@ function Menu(props: Props) {
                     --item.package_amount
                 }
             );
-            console.log(item)
             selectedItemsCopy.push(item);
             props.setSelectedItems(selectedItemsCopy);
         }
