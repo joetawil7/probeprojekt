@@ -1,0 +1,46 @@
+@use '../abstracts/' as *;
+
+.container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    margin-bottom: 50px;
+
+    .item {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .itemName {
+            position: relative;
+            font-size: 32px;
+            transform: .25s all;
+
+            &.active {
+                font-weight: bold;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    left: 0px;
+                    bottom: 0px;
+                    height: 2px;
+                    background-color: $mainColor;
+                    animation: left-to-right-line 0.25s 0s linear normal forwards running;
+                }
+            }
+        }
+
+        @keyframes left-to-right-line {
+            0% {
+                width: 0px;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+    }
+}

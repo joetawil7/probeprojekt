@@ -1,0 +1,76 @@
+@use '../abstracts/' as *;
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 250px;
+    background-color: white;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0px 0px 12px -3px $shadowColor;
+    cursor: pointer;
+    transition: 0.25s all;
+    opacity: 0;
+    border: 1px solid white;
+    animation: opacity 0.25s var(--index) linear normal forwards running;
+    @keyframes opacity {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 12px 0px $greenColor;
+    }
+
+    &.selected {
+        border: 1px solid $greenColor;
+        box-shadow: 0px 0px 12px -3px $greenColor;
+    }
+    
+    .header {
+        position: relative;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        margin-bottom: 15px;
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 75px;
+            height: 2px;
+            background-color: $greenColor;
+            bottom: 0;
+        }
+    }
+
+    .description {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .price {
+        margin-top: auto;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        margin-right: 10px;
+        font-size: 26px;
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    .checkMark {
+        position: absolute;
+        width: 20px;
+    }
+}

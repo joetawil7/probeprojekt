@@ -1,0 +1,80 @@
+@use '../abstracts/' as *;
+
+.container {
+    position: relative;
+    height: 100px;
+    display: flex;
+    padding: 0 30px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        height: 2px;
+        background-color: $mainColor;
+    }
+
+    .half {
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+        .title, .price {
+            font-size: 18px;
+        }
+
+        .countControl {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            .count {
+                margin: 0 10px;
+            }
+
+            .button {
+                position: relative;
+                border-radius: 50px;
+                height: 25px;
+                width: 25px;
+                cursor: pointer;
+                border: 1px solid $greenColor;
+                transition: 0.25s all;
+
+                &::before {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: $greenColor;
+                }
+
+                &.minus {
+                    &::before {
+                        content: '-';
+                    }
+                }
+
+                &.plus {
+                    &::before {
+                        content: '+';
+                    }
+                }
+
+                &:hover {
+                    background-color: $greenColor;
+
+                    &::before {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .price {
+            margin-left: auto;
+            font-weight: bold;
+        }
+    }
+}
